@@ -7,4 +7,6 @@ import java.util.ArrayList;
 
 public interface ServerRepository extends CrudRepository<Server,Integer> {
 
+    @Override
+    ArrayList<Server> findAll();
 }

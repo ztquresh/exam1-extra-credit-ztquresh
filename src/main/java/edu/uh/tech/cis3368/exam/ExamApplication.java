@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class ExamApplication implements CommandLineRunner {
@@ -30,11 +30,16 @@ public class ExamApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args){
+		serverRepository.deleteAll();
 		examService.createData();
+		BigDecimal sum = examService.calculateTotalRunningCost();
+		System.out.println(sum);
 
+		examService.updateCosts();
 	}
-
-
-
-
 }
+
+
+
+
+
